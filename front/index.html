@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Management</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2>Registered Users</h2>
+      <button
+        class="btn btn-primary mb-3"
+        data-toggle="modal"
+        data-target="#newUserModal">
+        Add New User
+      </button>
+      <table class="table table-bordered" id="usersTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- New User Modal -->
+    <div
+      class="modal fade"
+      id="newUserModal"
+      tabindex="-1"
+      aria-labelledby="newUserModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newUserModalLabel">Add New User</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="newUserForm">
+              <div class="form-group">
+                <label for="newUserName">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="newUserName"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="newUserEmail">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="newUserEmail"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="newUserAge">Age</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="newUserAge"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="newUserPassword">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="newUserPassword"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="newUserConfirmPassword">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="newUserConfirmPassword"
+                  required />
+              </div>
+              <button type="submit" class="btn btn-primary">Add User</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit User Details Modal -->
+    <div
+      class="modal fade"
+      id="editUserModal"
+      tabindex="-1"
+      aria-labelledby="editUserModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editUserModalLabel">
+              Edit User Details
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editUserForm">
+              <div class="form-group">
+                <label for="editUserName">Name</label>
+                <input type="text" class="form-control" id="editUserName" />
+              </div>
+              <div class="form-group">
+                <label for="editUserEmail">Email</label>
+                <input type="email" class="form-control" id="editUserEmail" />
+              </div>
+              <div class="form-group">
+                <label for="editUserAge">Age</label>
+                <input type="number" class="form-control" id="editUserAge" />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Save Changes
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Update Password Modal -->
+    <div
+      class="modal fade"
+      id="updatePasswordModal"
+      tabindex="-1"
+      aria-labelledby="updatePasswordModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updatePasswordModalLabel">
+              Update Password
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="updatePasswordForm">
+              <div class="form-group">
+                <label for="oldPassword">Old Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="oldPassword"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="newPassword">New Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="newPassword"
+                  required />
+              </div>
+              <div class="form-group">
+                <label for="confirmPassword">Confirm New Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  required />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Update Password
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="updatePasswordError" class="text-danger"></div>
+
+    <script src="./script.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
